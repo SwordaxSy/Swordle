@@ -16,7 +16,7 @@ const settingsButtons = document.querySelectorAll(".settings button");
 const resetButton = document.querySelector(".reset-button");
 
 // Game Variables
-let gameRows = 5;
+let gameRows = parseInt(localStorage.getItem("rows")) || 5;
 let currentPos = 0;
 let skips = 0;
 let locked = false;
@@ -85,6 +85,9 @@ insertPads();
 
 // Game Settings Buttons
 settingsButtons.forEach((btn) => {
+    if (parseInt(btn.getAttribute("data-rows")) == gameRows) {
+        btn.classList.add("current");
+    }
     btn.addEventListener("click", (e) => {
         document
             .querySelector(".settings button.current")
@@ -94,6 +97,8 @@ settingsButtons.forEach((btn) => {
         gameRows = parseInt(btn.getAttribute("data-rows"));
         insertPads();
         resetGame();
+
+        localStorage.setItem("rows", gameRows);
     });
 });
 
@@ -120,7 +125,7 @@ async function keyAction(e) {
     if (!validKeys.includes(eKey)) return false;
 
     if (eKey == "backspace") {
-        if (currentPos == 0) return false;
+        if (currentPos == skips) return false;
 
         currentPos--;
         pads[currentPos].innerText = "";

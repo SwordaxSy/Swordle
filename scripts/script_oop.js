@@ -17,7 +17,7 @@ class Swordle {
         this.timeField = document.querySelector("#time");
 
         // Global Variables
-        this.gameRows = 5;
+        this.gameRows = parseInt(localStorage.getItem("rows")) || 5;
         this.currentPos = 0;
         this.skips = 0;
         this.locked = false;
@@ -43,6 +43,10 @@ class Swordle {
 
         // Set Rows
         document.querySelectorAll(".settings button").forEach((btn) => {
+            if (parseInt(btn.getAttribute("data-rows")) == this.gameRows) {
+                btn.classList.add("current");
+            }
+
             btn.addEventListener("click", (e) => {
                 document
                     .querySelector(".settings button.current")
@@ -51,9 +55,9 @@ class Swordle {
 
                 this.gameRows = parseInt(btn.getAttribute("data-rows"));
                 this.insertPads();
-                this.pads = document.querySelectorAll(".pad");
-
                 this.resetGame();
+
+                localStorage.setItem("rows", this.gameRows);
             });
         });
 
@@ -152,7 +156,7 @@ class Swordle {
         if (!validKeys.includes(eKey)) return false;
 
         if (eKey == "backspace") {
-            if (this.currentPos == 0) return false;
+            if (this.currentPos == this.skips) return false;
 
             this.currentPos--;
             this.pads[this.currentPos].innerText = "";
