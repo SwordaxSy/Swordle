@@ -1,0 +1,16 @@
+{
+    "project_info": {
+        "project_name": "Swordle",
+        "project_version": "1.0.0",
+        "project_developer": "Swordax",
+        "project_description": "Swordle word guessing game",
+        "project_github_repo": "https://github.com/SwordaxSy/Swordle",
+        "project_publishing_date": "17 April, 2022"
+    },
+    "developer_info": {
+        "developer_name": "Swordax",
+        "developer_at": "@swordax.sy",
+        "developer_github": "https://github.com/SwordaxSy",
+        "developer_discord": "https://discord.com/users/465453058667839499/"
+    }
+}
