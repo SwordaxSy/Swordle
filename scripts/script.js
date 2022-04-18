@@ -1,3 +1,9 @@
+/**
+ * Swordle © 2022 - present | Swordax
+ * @swordax.sy
+ * Discord Swordax#5756
+ */
+
 // Import Words
 import { threeWords, fourWords, fiveWords } from "./words.js";
 
