@@ -5,6 +5,13 @@
  *
  * guesser.js is a cheat script created for swordle word guessing game
  * the gusser tool is not to be included in the production version
+ *
+ * to use the cheat script:
+ * 1- copy the code
+ * 2- paste the code in the game window console
+ * 3- replace the import line with this line:
+ *      ` const { threeWords, fourWords, fiveWords } = await import("./scripts/words.js"); `
+ * 4- activate the cheat script by hitting enter
  */
 
 // Import Words
